@@ -46,4 +46,37 @@ function getHumanChoice() {
       return "computer";
     }
   }
+  function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+  
+    for (let i = 0; i < 5; i++) {
+      const humanChoice = getHumanChoice();
+      const computerChoice = getComputerChoice();
+      const result = playRound(humanChoice, computerChoice);
+  
+      if (result === "human") {
+        humanScore++;
+      } else if (result === "computer") {
+        computerScore++;
+      }
+  
+      console.log(
+        `Round ${
+          i + 1
+        }: Human score = ${humanScore}, Computer score = ${computerScore}`
+      );
+    }
+  
+    if (humanScore > computerScore) {
+      console.log("Congratulations! You won the game!");
+    } else if (humanScore < computerScore) {
+      console.log("Sorry, you lost the game. Better luck next time!");
+    } else {
+      console.log("It's a tie game!");
+    }
+  }
+  
+  // Start the game
+  playGame();
   
